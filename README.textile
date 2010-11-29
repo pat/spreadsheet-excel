@@ -1,0 +1,19 @@
+h1. Spreadsheet::Excel
+
+I'm resurrecting this code from an old, no-longer-maintained gem (spreadsheet-excel). This is purely because I want something released using a permissive license that writes Excel files. I don't plan to maintain this library, but I'm just making a few small changes so I'm happy enough to use it.
+
+h2. Installing
+
+Given the gem already exists (and I'm not making any attempt to really take it over), the only way to install - short of getting the source and building the gem from the gemspec - is via Bundler.
+
+<pre><code>gem 'spreadsheet-excel',
+  :git    => 'git://github.com/freelancing-god/spreadsheet-excel.git',
+  :branch => 'master'</code></pre>
+
+h2. Usage
+
+Have a read of the original README (@README.original.txt@), but keep in mind I've put all classes within the Spreadsheet::Excel namespace.
+
+h2. Credits and Licence
+
+As mentioned in the original README, this code is released under the Ruby licence. The original author was Daniel J. Berger, and the library was then maintained by Hannes Wyss.
