@@ -10,5 +10,5 @@ Jeweler::Tasks.new do |s|
   s.summary            = 'Generate Excel Files'
   s.description        = 'A basic library for generating Excel files'
   s.authors            = ['Daniel J. Berger', 'Hannes Wyss', 'Pat Allan']
-  s.files              = FileList[ "{lib,test}/**/*"]
+  s.files              = FileList['{lib,test}/**/*', 'README.textile']
 end

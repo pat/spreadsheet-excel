@@ -13,9 +13,12 @@ Gem::Specification.new do |s|
   s.description = %q{A basic library for generating Excel files}
   s.email = %q{pat@freelancing-gods.com}
   s.extra_rdoc_files = [
-    "README"
+    "README.original.txt",
+    "README.textile"
   ]
   s.files = [
+    "README.textile",
+    "lib/spreadsheet-excel.rb",
     "lib/spreadsheet/excel.rb",
     "lib/spreadsheet/excel/biffwriter.rb",
     "lib/spreadsheet/excel/format.rb",
