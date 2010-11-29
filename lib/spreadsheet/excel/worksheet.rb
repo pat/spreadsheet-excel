@@ -1,6 +1,4 @@
-class MaxSizeError < StandardError; end
-
-class Worksheet < BIFFWriter
+class Spreadsheet::Excel::Worksheet < Spreadsheet::Excel::BIFFWriter
 
    RowMax = 65536
    ColMax = 256
@@ -150,7 +148,7 @@ class Worksheet < BIFFWriter
       coldx *= 256
       reserved = 0x00
 
-      if ixfe.kind_of?(Format)
+      if ixfe.kind_of?(Spreadsheet::Excel::Format)
          ixfe = ixfe.xf_index
       end
 
@@ -325,7 +323,7 @@ class Worksheet < BIFFWriter
    # method only after you have written data to it, or the formatting will
    # be lost.
    def format_rectangle(x1, y1, x2, y2, format)
-      raise TypeError, "invalid format" unless format.kind_of?(Format)
+      raise TypeError, "invalid format" unless format.kind_of?(Spreadsheet::Excel::Format)
 
       x1.upto(x2){ |row|
          y1.upto(y2){ |col|
@@ -414,7 +412,7 @@ class Worksheet < BIFFWriter
 
    # private - adapted from .37 of Spreadsheet::WriteExcel
    def XF(row, col, xf=nil)
-      if xf.kind_of?(Format)
+      if xf.kind_of?(Spreadsheet::Excel::Format)
          return xf.xf_index
       elsif @row_formats.has_key?(row) 
          return @row_formats[row].xf_index

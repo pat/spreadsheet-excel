@@ -1,3 +1,6 @@
+== 0.4.0 - 29-Nov-2010
+* Reworking directory structure, namespacing, adding Jeweler and Bundler dependencies, uploading to Github. Apologies to the original authors, but finding this code far less than ideal.
+
 == 0.3.5.1 - 8-Feb-2007
 * Fixed a bug reported by Kirk Haines where string-inputs were sliced into
   oblivion by Worksheet#write. This only concerns gem-installations of

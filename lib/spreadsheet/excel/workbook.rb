@@ -1,4 +1,4 @@
-class Workbook < BIFFWriter
+class Spreadsheet::Excel::Workbook < Spreadsheet::Excel::BIFFWriter
    BOF = 11
    EOF = 4
    SheetName = "Sheet"
@@ -10,7 +10,7 @@ class Workbook < BIFFWriter
       super
 
       @file       = file
-      @format     = Format.new
+      @format     = Spreadsheet::Excel::Format.new
 
       @active_sheet = 0
       @first_sheet  = 0
@@ -30,11 +30,11 @@ class Workbook < BIFFWriter
 
    def add_format(*args)
       if args[0].kind_of?(Hash)
-         f = Format.new(args[0], @xf_index)
+         f = Spreadsheet::Excel::Format.new(args[0], @xf_index)
       elsif args[0].nil?
-         f = Format.new
+         f = Spreadsheet::Excel::Format.new
       else
-         raise TypeError unless args[0].kind_of?(Format)
+         raise TypeError unless args[0].kind_of?(Spreadsheet::Excel::Format)
          f = args[0]
          f.xf_index = @xf_index
       end
@@ -51,7 +51,7 @@ class Workbook < BIFFWriter
       end
       
       args = [name,index, @active_sheet, @first_sheet, @url_format]
-      ws = Worksheet.new(*args)
+      ws = Spreadsheet::Excel::Worksheet.new(*args)
       @worksheets[index] = ws
       return ws
    end
@@ -95,7 +95,7 @@ class Workbook < BIFFWriter
    end
    
    def store_ole_file
-      OLEWriter.open(@file){ |ole|
+      Spreadsheet::Excel::OLEWriter.open(@file){ |ole|
          ole.set_size(@biffsize)
          ole.write_header
          ole.print(@data)

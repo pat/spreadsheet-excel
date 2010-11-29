@@ -1,4 +1,4 @@
-class Format
+class Spreadsheet::Excel::Format
 
    COLORS = {
       'aqua'    => 0x0F,

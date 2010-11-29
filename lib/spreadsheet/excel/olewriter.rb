@@ -3,9 +3,9 @@
 # This class should never be instantiated directly. The entire class, and all
 # its methods should be considered private.
 
-class MaxSizeError < StandardError; end
+class Spreadsheet::Excel::MaxSizeError < StandardError; end
 
-class OLEWriter
+class Spreadsheet::Excel::OLEWriter
 
    # Not meant for public consumption
    MaxSize    = 7087104
@@ -62,7 +62,7 @@ class OLEWriter
    #
    # MaxSize = @big_blocks * 512 bytes = 7087104
    def set_size(size = BlockSize)
-      raise MaxSizeError if size > MaxSize
+      raise Spreadsheet::Excel::MaxSizeError if size > MaxSize
 
       @biff_size = size
 

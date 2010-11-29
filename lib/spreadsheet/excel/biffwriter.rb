@@ -1,5 +1,4 @@
-class BIFFWriter
-
+class Spreadsheet::Excel::BIFFWriter
    BIFF_Version = 0x0500
    BigEndian    = [1].pack("I") == [1].pack("N")
 

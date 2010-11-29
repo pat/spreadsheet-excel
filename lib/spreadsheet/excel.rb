@@ -1,13 +1,11 @@
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-
-require "biffwriter"
-require "olewriter"
-require "workbook"
-require "worksheet"
-require "format"
-
 module Spreadsheet
-   class Excel < Workbook
-      VERSION = "0.3.5.1"
-   end
+  class Excel
+    #
+  end
 end
+
+require 'spreadsheet/excel/biffwriter'
+require 'spreadsheet/excel/olewriter'
+require 'spreadsheet/excel/workbook'
+require 'spreadsheet/excel/worksheet'
+require 'spreadsheet/excel/format'
